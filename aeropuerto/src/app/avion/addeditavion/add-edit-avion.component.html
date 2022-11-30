@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-1">
+        <button type="button" class="btn btn-light my-5" routerLink="/aviones">Atras</button>
+    </div>
+    <div class="col-4">
+        <h3 class="mt-2">{{ accion }} avion</h3>
+
+        <form [formGroup]="planeForm" (ngSubmit)="onSubmit(planeForm)">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" formControlName="name" name="name" id="name" placeholder="Nombre del avion">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" class="form-control" formControlName="description" name="description" id="description"
+                    placeholder="Descripción del avion">
+            </div>
+            <div class="form-group">
+                <label for="motor">Nombre Motor</label>
+                <input type="text" class="form-control" formControlName="motor" name="state" id="motor" placeholder="Nombre motor del avion">
+            </div>
+            <div class="form-group">
+                <label for="state">Estado</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="state" name="state" id="state" [checked]>
+                    <label class="form-check-label" for="state">
+                        ¿Buen estado?
+                    </label>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="fechaRegistro">Fecha Registro</label>
+                <input type="date" class="form-control" formControlName="fechaRegistro" name="fechaRegistro" id="fechaRegistro"
+                    placeholder="Fecha de registro del avion">
+            </div>
+            
+            <div class="form-group">
+                <label for="fechaCompra">Fecha Registro</label>
+                <input type="date" class="form-control" formControlName="fechaCompra" name="fechaCompra" id="fechaCompra"
+                    placeholder="Fecha de compra del avion">
+            </div>
+            <div class="form-group">
+                <label for="fechaSalida">Fecha Registro</label>
+                <input type="date" class="form-control" formControlName="fechaSalida" name="fechaSalida" id="fechaSalida"
+                    placeholder="Fecha de salida del avion">
+            </div>
+            <button type="submit" class="btn btn-outline-dark mt-3" [disabled]="planeForm.invalid">{{ accion }}</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-1">
+        <button type="button" class="btn btn-light my-5" routerLink="/itinerario">Atras</button>
+    </div>
+
+    <div class="col-4">
+        <h3 class="mt-2">{{ accion }} itinerario</h3>
+
+        <form [formGroup]="itinerarioForm" (ngSubmit)="onSubmit(itinerarioForm)">
+            <div class="form-group">
+                <label for="name">Nombre Vuelo</label>
+                <input type="text" class="form-control" formControlName="name" name="name" id="name" placeholder="Nombre del itinerario">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" class="form-control" formControlName="description" name="description" id="description"
+                    placeholder="Descripción del itinerario">
+            </div>
+
+            <div class="form-group">
+                <label for="">Avión</label>
+                <select name="" id="" formControlName="" class="form-control" value="Avión del itinerario"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Ciudad origen</label>
+                <select name="" id="" formControlName="" class="form-control" value="Ciudad origen del vuelo"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Ciudad destino</label>
+                <select name="" id="" formControlName="" class="form-control" value="Ciudad destino del vuelo"></select>
+            </div>
+    
+            <div class="form-group">
+                <label for="fechaRegistro">Fecha Registro</label>
+                <input type="date" class="form-control" formControlName="fechaRegistro" name="fechaRegistro" id="fechaRegistro"
+                    placeholder="Fecha de registro del itinerario">
+            </div>
+            
+            <div class="form-group">
+                <label for="fechaCompra">Fecha Registro</label>
+                <input type="date" class="form-control" formControlName="fechaCompra" name="fechaCompra" id="fechaCompra"
+                    placeholder="Fecha de compra del itinerario">
+            </div>
+            <div class="form-group">
+                <label for="fechaSalida">Fecha Registro</label>
+                <input type="date" class="form-control" formControlName="fechaSalida" name="fechaSalida" id="fechaSalida"
+                    placeholder="Fecha de salida del itinerario">
+            </div>
+            <button type="submit" class="btn btn-outline-dark mt-3" [disabled]="itinerarioForm.invalid">{{ accion }}</button>
+        </form>
+    </div>
+</div>
