@@ -98,7 +98,6 @@ namespace Vuelos.Data
                     using (SqlCommand cmd = new SqlCommand("sp_addAvion", sql))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@IdAvion", avion.IdAvion));
                         cmd.Parameters.Add(new SqlParameter("@Nombre", avion.Nombre));
                         cmd.Parameters.Add(new SqlParameter("@Descripcion", avion.Descripcion));
                         cmd.Parameters.Add(new SqlParameter("@Motor", avion.Motor));
@@ -127,12 +126,13 @@ namespace Vuelos.Data
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_updateAvion", sql))
                     {
+
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@IdAvion", avion.IdAvion));
                         cmd.Parameters.Add(new SqlParameter("@Nombre", avion.Nombre));
                         cmd.Parameters.Add(new SqlParameter("@Descripcion", avion.Descripcion));
                         cmd.Parameters.Add(new SqlParameter("@Motor", avion.Motor));
                         cmd.Parameters.Add(new SqlParameter("@Estado", avion.Estado));
-                        cmd.Parameters.Add(new SqlParameter("@FechaRegistro", avion.FechaRegistro));
                         cmd.Parameters.Add(new SqlParameter("@FechaCompra", avion.FechaCompra));
                         cmd.Parameters.Add(new SqlParameter("@FechaSalida", avion.FechaSalida));
                         await sql.OpenAsync();
@@ -158,7 +158,7 @@ namespace Vuelos.Data
                     using (SqlCommand cmd = new SqlCommand("sp_DeleteAvion", sql))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.Add(new SqlParameter("@Id", id));
+                        cmd.Parameters.Add(new SqlParameter("@IdAvion", id));
                         await sql.OpenAsync();
                         await cmd.ExecuteNonQueryAsync();
                         return;

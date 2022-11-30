@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using Vuelos.Data;
+using Vuelos.Dtos;
 using Vuelos.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -43,11 +44,20 @@ namespace Vuelos.Controllers
 
         // PUT api/<AvionController>/5
         [HttpPut("{id}")]
-        public async Task Put(int id, Avion avion)
+        public async Task Put(int id, DtosAvion avion)
         {
-            //var idavion = Avion(avion);
-            //idavion.IdAvion = id;
-            //await _repository.Update(idavion);
+            Avion update = new ()
+            {
+                IdAvion = id,
+                Nombre = avion.Nombre,
+                Descripcion = avion.Descripcion,
+                Motor = avion.Motor,
+                Estado = avion.Estado,
+                FechaCompra = avion.FechaCompra,
+                FechaSalida = avion.FechaSalida
+            };
+            
+            await _repository.Update(update);
         }
 
         // DELETE api/<AvionController>/5
